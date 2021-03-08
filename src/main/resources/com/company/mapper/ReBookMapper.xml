@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.mapper.ReBookMapper">
+	<insert id="insertRecommand_Book">
+		insert into recommand_book
+		values(#{recommand_book_title},
+		#{recommand_book_contents},
+		#{recommand_book_isbn}, #{recommand_book_datetime},
+		#{recommand_book_authors1}, #{recommand_book_authors2},
+		#{recommand_book_authors3}, #{recommand_book_publisher},
+		#{recommand_book_translators1}, #{recommand_book_translators2},
+		#{recommand_book_translators3}, #{recommand_book_price},
+		#{recommand_book_sale_price}, #{recommand_book_thumbnaile},
+		#{recommand_book_status})
+	</insert>
+
+	<select id="allRecommand_Book" resultType="com.company.domain.ReBookVO">
+		select
+		recommand_book_title,recommand_book_contents,recommand_book_isbn,recommand_book_datetime,recommand_book_authors1,recommand_book_authors2,recommand_book_authors3,recommand_book_publisher,recommand_book_translators1,recommand_book_translators2,recommand_book_translators3,recommand_book_price,recommand_book_sale_price,recommand_book_thumbnaile,recommand_book_status
+		from
+		recommand_book
+	</select>
+
+	<delete id="deleteRecommand_Book">
+		delete from recommand_book where reIsbn=#{recommand_book_isbn}
+	</delete>
+</mapper>
